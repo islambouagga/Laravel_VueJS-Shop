@@ -1,13 +1,13 @@
 <template>
-    <div class="example">
+    <div class="products">
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Example Component</div>
+                    <div class="card-header">Products Component</div>
 
                     <div class="card-body">
-                        I'm an example component.
+                        I'm an Products component.
                     </div>
                 </div>
             </div>
@@ -18,7 +18,7 @@
 
 <script>
     export default {
-        name:"Example",
+        name:"Products",
         props: {
             msg: String
         },

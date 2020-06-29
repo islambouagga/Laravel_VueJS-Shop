@@ -17,7 +17,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <link rel="stylesheet" href="/css/app.css">
 </head>
 <body class="hold-transition sidebar-mini">
-<div class="wrapper">
+<div class="wrapper" id="app">
 
     <!-- Navbar -->
     <nav class="main-header navbar navbar-expand navbar-white navbar-light">
@@ -70,14 +70,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
             </div>
 
             <!-- Sidebar Menu -->
-            <nav class="mt-2">
+            <nav class="mt-2" style="
+    font-size: large;
+">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                     data-accordion="false">
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                     <li class="nav-item has-treeview ">
                         <a href="#" class="nav-link ">
-                            <i class="fas fa-users-cog"></i>
+                            <i class="fas fa-cog"></i>
                             <p>
                                 Administrator
 
@@ -87,15 +89,15 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
                                 <router-link to="/admin/users" class="nav-link ">
-                                    <i class="fas fa-user-friends"></i>
+                                    <i class="fas fa-users-cog"></i>
                                     <p>Users</p>
                                 </router-link>
                             </li>
                             <li class="nav-item">
-                                <a  class="nav-link ">
+                                <router-link to="/admin/customers"  class="nav-link ">
                                     <i class="fas fa-users"></i>
                                     <p>Customers</p>
-                                </a>
+                                </router-link>
                             </li>
 
                         </ul>
@@ -114,27 +116,41 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link ">
+                                <router-link to="/admin/products" class="nav-link ">
                                     <i class="fab fa-amazon"></i>
-                                    <p>Product</p>
-                                </a>
+                                    <p>Products</p>
+                                </router-link>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <router-link to="/admin/categories" class="nav-link">
                                     <i class="fas fa-bars "></i>
-                                    <p>categories</p>
-                                </a>
+                                    <p>Categories</p>
+                                </router-link>
                             </li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link">
+                        <router-link to="/admin/orders" class="nav-link">
                             <i class="fa fa-shopping-cart"></i>
                             <p>
                                 Orders
+                            </p>
+                        </router-link>
+                    </li>
+                    <li class="nav-item">
 
+                        <a class="nav-link" href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                            <i class="nav-icon fas fa-power-off red"></i>
+                            <p>
+                                {{ __('Logout') }}
                             </p>
                         </a>
+
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </li>
                 </ul>
             </nav>
@@ -150,7 +166,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
-
+            <router-view></router-view>
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content -->
