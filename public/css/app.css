@@ -51414,3 +51414,8 @@ input[type=color].form-control:disabled {
   vertical-align: text-bottom;
 }
 
+.router-link-exact-active {
+  background-color: #00bfa6;
+  color: white !important;
+}
+

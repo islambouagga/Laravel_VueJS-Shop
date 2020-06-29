@@ -14,3 +14,10 @@ $fa-font-path:"../webfonts";
 @import "~@fortawesome/fontawesome-free/scss/brands.scss";
 // bootstrap-vue
 @import '~bootstrap-vue/src/index.scss';
+
+
+
+.router-link-exact-active {
+    background-color: #00bfa6;
+    color: white !important;
+}
